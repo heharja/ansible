@@ -78,7 +78,7 @@
         map_public: yes
         resource_tags:
           name: vprofile-privsub2
-     register: privsub2_out
+      register: privsub2_out
 
     - name: create private subnet 3 in zone3
       ec2_vpc_subnet:
