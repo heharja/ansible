@@ -29,7 +29,7 @@
         cidr: "{{PubSub1Cidr}}"
         map_public: yes
         resource_tags:
-          name: vprofile-pubsub1
+          Name: vprofile-pubsub1
       register: pubsub1_out
 
     - name: create public subnet 2 in zone2
@@ -41,7 +41,7 @@
         cidr: "{{PubSub2Cidr}}"
         map_public: yes
         resource_tags:
-          name: vprofile-pubsub2
+          Name: vprofile-pubsub2
       register: pubsub2_out
 
     - name: create public subnet 3 in zone3
@@ -53,7 +53,7 @@
         cidr: "{{PubSub3Cidr}}"
         map_public: yes
         resource_tags:
-          name: vprofile-pubsub3
+          Name: vprofile-pubsub3
       register: pubsub3_out
 
     - name: create private subnet 1 in zone1
@@ -65,7 +65,7 @@
         cidr: "{{PrivSub1Cidr}}"
         map_public: yes
         resource_tags:
-          name: vprofile-privsub1
+          Name: vprofile-privsub1
       register: privsub1_out
 
     - name: create private subnet 2 in zone2
@@ -77,7 +77,7 @@
         cidr: "{{PrivSub2Cidr}}"
         map_public: yes
         resource_tags:
-          name: vprofile-privsub2
+          Name: vprofile-privsub2
       register: privsub2_out
 
     - name: create private subnet 3 in zone3
@@ -89,5 +89,5 @@
         cidr: "{{PrivSub3Cidr}}"
         map_public: yes
         resource_tags:
-          name: vprofile-privsub3
+          Name: vprofile-privsub3
       register: privsub3_out
