@@ -28,6 +28,7 @@
         description: allow port 80 from everywhere and all port within sg
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
+        purge_rules: no
         rules:
           - proto: tcp
             from_port: 80
@@ -41,6 +42,7 @@
         description: allow port 22 from everywhere and all port within sg
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
+        purge_rules: no
         rules:
           - proto: tcp
             from_port: 80
@@ -59,6 +61,7 @@
         description: allow port 22 from everywhere and all port within sg
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
+        purge_rules: no
         rules:
           - proto: all
             group_id: "{{vproStackSG_out.group_id}}"
@@ -169,7 +172,7 @@
       register: db01_out
 
     - debug:
-        var: db01_out.tagged_instance[0].id
+        var: db01_out.tagged_instances[0].id
 
     - local_action:
         module: ec2_elb_lb
@@ -193,11 +196,11 @@
       blockinfile:
         path: provision_stack/group_vars/hostsip
         block:
-          web01.ip: "{{web01_out.tagged_instance[0}.id}}"
-          app01.ip: "{{app01_out.tagged_instance[0}.id}}"
-          rmq01.ip: "{{rmq01_out.tagged_instance[0}.id}}"
-          mc01.ip: "{{mc01_out.tagged_instance[0}.id}}"
-          db01.ip: "{{db01_out.tagged_instance[0}.id}}"
+          web01.ip: "{{web01_out.tagged_instances[0}.id}}"
+          app01.ip: "{{app01_out.tagged_instances[0}.id}}"
+          rmq01.ip: "{{rmq01_out.tagged_instances[0}.id}}"
+          mc01.ip: "{{mc01_out.tagged_instances[0}.id}}"
+          db01.ip: "{{db01_out.tagged_instances[0}.id}}"
 
     - name: copy login key to provision-stack directory
       copy:
@@ -209,11 +212,11 @@
       blockinfile:
         path: provision_stack/inventory-vpro
         block:
-          web01 ansible_host={{web01_out.tagged_instance[0}.id}}
-          app01 ansible_host={{app01_out.tagged_instance[0}.id}}
-          rmq01 ansible_host={{rmq01_out.tagged_instance[0}.id}}
-          mc01 ansible_host={{mc01_out.tagged_instance[0}.id}}
-          db01 ansible_hosts={{db01_out.tagged_instance[0}.id}}
+          web01 ansible_host={{web01_out.tagged_instances[0}.id}}
+          app01 ansible_host={{app01_out.tagged_instances[0}.id}}
+          rmq01 ansible_host={{rmq01_out.tagged_instances[0}.id}}
+          mc01 ansible_host={{mc01_out.tagged_instances[0}.id}}
+          db01 ansible_hosts={{db01_out.tagged_instances[0}.id}}
           cntl ansible_host=127.0.0.1 ansible_connection=local
 
           [websrvgrp]
