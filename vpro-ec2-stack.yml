@@ -11,7 +11,7 @@
 
     - name: create vprofile-key
       ec2_key:
-        name: vprofile-key
+        name: vprokey
         region: "{{region}}"
       register: vprokey_out
 
