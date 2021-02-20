@@ -72,7 +72,7 @@
         instance_type: t2.micro
         image: "{{nginx_ami}}"
         wait: yes
-        wait_timeout: 300
+        wait_timeout: 400
         instance_tags:
           Name: "web01"
           Project: Vprofile
@@ -93,7 +93,7 @@
           instance_type: t2.micro
           image: "{{tomcat_ami}}"
           wait: yes
-          wait_timeout: 300
+          wait_timeout: 400
           instance_tags:
             Name: "app01"
             Project: Vprofile
@@ -114,7 +114,7 @@
           instance_type: t2.micro
           image: "{{memcache_ami}}"
           wait: yes
-          wait_timeout: 300
+          wait_timeout: 400
           instance_tags:
             Name: "mc01"
             Project: Vprofile
@@ -135,7 +135,7 @@
           instance_type: t2.micro
           image: "{{rmq_ami}}"
           wait: yes
-          wait_timeout: 300
+          wait_timeout: 400
           instance_tags:
             Name: "rmq01"
             Project: Vprofile
@@ -156,7 +156,7 @@
           instance_type: t2.micro
           image: "{{mysql_ami}}"
           wait: yes
-          wait_timeout: 300
+          wait_timeout: 400
           instance_tags:
             Name: "db01"
             Project: Vprofile
