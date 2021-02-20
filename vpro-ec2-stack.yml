@@ -20,4 +20,4 @@
         content: "{{vprokey_out.key.private_key}}"
         dest: "./loginkey-vpro.pem"
         mode: 0600
-        when: vprokey_out.changed
+      when: vprokey_out.changed
